@@ -1,8 +1,8 @@
 /* Estilos compartilhados — Guia de Locais e Eventos */
 :root {
   color-scheme: light;
-  --azul: #2e7bbd;
-  --azul-escuro: #205d91;
+  --azul: #1f65a3;
+  --azul-escuro: #17497a;
   --texto: #1a1a2e;
   --fundo: #f7f8fa;
   --painel: #e9eef3;
@@ -34,7 +34,7 @@ main { grid-area: main; min-width: 0; }
   text-align: center;
 }
 .header-brand h1 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.2; }
-.header-brand p { margin: .25rem 0 0; font-size: .9rem; opacity: .95; }
+.header-brand p { margin: .25rem 0 0; font-size: .9rem;  }
 .nav, .categorias { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding: 0; margin: 0; list-style: none; }
 .nav a {
   display: inline-flex;
@@ -168,7 +168,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .header-brand p {
   margin: 0;
   font-size: .9rem;
-  opacity: .95;
+  
 }
 
 .nav {
