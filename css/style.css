@@ -119,8 +119,64 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .cards-section { padding: 0 2rem 3rem; }
   .detalhe { padding: 3rem 2rem; }
   .info-section { margin-left: 2rem; margin-right: 2rem; }
+  .header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 1rem 2rem;
+  text-align: left;
+}
+
+.header-brand {
+  flex-shrink: 0;
+}
+
+.nav {
+  justify-content: flex-end;
+  gap: .75rem;
+}
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+.header {
+  grid-area: cabecalho;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--azul);
+  color: #fff;
+  text-align: center;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.header-brand h1 {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.2;
+}
+
+.header-brand p {
+  margin: 0;
+  font-size: .9rem;
+  opacity: .95;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .65rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
