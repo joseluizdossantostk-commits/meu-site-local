@@ -1,0 +1,126 @@
+/* Estilos compartilhados — Guia de Locais e Eventos */
+:root {
+  color-scheme: light;
+  --azul: #2e7bbd;
+  --azul-escuro: #205d91;
+  --texto: #1a1a2e;
+  --fundo: #f7f8fa;
+  --painel: #e9eef3;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas: "cabecalho" "lateral" "main" "rodape";
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+img, picture, video, canvas, svg { max-width: 100%; height: auto; }
+main { grid-area: main; min-width: 0; }
+.header {
+  grid-area: cabecalho;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem;
+  background: var(--azul);
+  color: #fff;
+  text-align: center;
+}
+.header-brand h1 { margin: 0; font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.2; }
+.header-brand p { margin: .25rem 0 0; font-size: .9rem; opacity: .95; }
+.nav, .categorias { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; padding: 0; margin: 0; list-style: none; }
+.nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: .55rem .7rem;
+  border-bottom: 3px solid transparent;
+  color: #fff;
+  text-decoration: none;
+}
+.nav a:hover { border-bottom-color: rgba(255,255,255,.65); }
+.nav a.active { border-bottom-color: #f5c518; }
+.lateral { grid-area: lateral; padding: 1rem; background: var(--painel); }
+.lateral h2 { margin: 0 0 .65rem; font-size: 1rem; }
+.categorias a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: .5rem .65rem;
+  color: var(--azul-escuro);
+  text-decoration: underline;
+}
+.hero {
+  display: flex;
+  min-height: 38vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.hero h2 {
+  max-width: 100%;
+  margin: 0 0 .75rem;
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  line-height: 1.12;
+  overflow-wrap: break-word;
+}
+.hero p { max-width: 30rem; margin: 0; color: #555; line-height: 1.6; }
+.cards-section { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1rem 2.5rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.25rem; }
+.card, .secao, .info-section {
+  min-width: 0;
+  padding: 1.35rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e2e5ea;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.card { transition: box-shadow .2s ease, transform .2s ease; }
+.card h3, .secao h3 { margin: 0 0 .65rem; color: var(--azul); }
+.card p, .secao p, .info-section p { color: #444; line-height: 1.6; }
+.card a, .voltar { display: inline-flex; min-height: 44px; align-items: center; color: #205d91; text-decoration: underline; }
+.card a:hover, .voltar:hover { color: #163f64; }
+.info-section { max-width: 1068px; margin: 0 1rem 1rem; }
+.info-section h2 { font-size: clamp(1.35rem, 3vw, 2rem); color: var(--azul); }
+.detalhe { width: 100%; max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+.detalhe h2 { margin: 0 0 1rem; color: var(--azul); font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1.15; overflow-wrap: break-word; }
+.footer { grid-area: rodape; padding: 1.25rem 1rem; background: #2d2d2d; color: #eee; text-align: center; font-size: .9rem; }
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid #f0a500;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+@media (hover: hover) {
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); transform: translateY(-2px); }
+}
+@media (min-width: 800px) {
+  body {
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "cabecalho cabecalho" "lateral main" "rodape rodape";
+  }
+  .header { flex-direction: row; justify-content: space-between; padding: 1rem 2rem; text-align: left; }
+  .nav { gap: .75rem; }
+  .lateral { padding: 1.5rem 1rem; }
+  .categorias { display: block; }
+  .categorias li { margin-bottom: .25rem; }
+  .hero { padding: 2rem 1.5rem; }
+  .cards-section { padding: 0 2rem 3rem; }
+  .detalhe { padding: 3rem 2rem; }
+  .info-section { margin-left: 2rem; margin-right: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
